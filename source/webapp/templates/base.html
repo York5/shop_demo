@@ -24,6 +24,8 @@
             {% block menu %}{% endblock %}
         </ul>
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="{% url 'webapp:basket' %}" class="nav-link">
+                Корзина {{ request.session.products_count|default:0 }}</a></li>
             {% if request.user.is_authenticated %}
                 <li class="nav-item"><a href="{% url 'accounts:detail' request.user.pk %}" class="nav-link">
                     Привет, {{ request.user.username }}!

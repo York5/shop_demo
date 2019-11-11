@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Товары{% endblock %}
+{% block menu %}
+    <li class="nav-item"><a href="{% url 'webapp:product_create' %}" class="nav-link">Добавить товар</a></li>
+{#    <li class="nav-item"><a href="{% url 'webapp:website_statistics' %}" class="nav-link">Статистика Сайта</a></li>#}
+{% endblock %}
+{% block content %}
+    <h1 class="text-center">Статистика Сесси на сайте</h1>
+    <hr>
+    <h2> Посещения страниц </h2>
+    <h4>Колличество посещений 'index': {{ index_visits }}</h4>
+    <h4>Проведенное время на 'index': {{ index_time }}</h4>
+    <hr>
+    <h4>Колличество посещений 'detail': {{ detail_visits }}</h4>
+    <h4>Проведенное время на 'detail': {{ detail_time }}</h4>
+{% endblock %}

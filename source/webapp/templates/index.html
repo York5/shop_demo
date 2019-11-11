@@ -2,9 +2,11 @@
 {% block title %}Товары{% endblock %}
 {% block menu %}
     <li class="nav-item"><a href="{% url 'webapp:product_create' %}" class="nav-link">Добавить товар</a></li>
+    <li class="nav-item"><a href="{% url 'webapp:session_stats' %}" class="nav-link">Статистика Сессии</a></li>
 {% endblock %}
 {% block content %}
     <h1 class="text-center">Товары</h1>
+    <h2 class="text-center">Колличество посещение: {{ index_visits }}</h2>
     <div class="row">
         {% for product in product_list %}
             <div class="col col-3">
@@ -13,8 +15,9 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.get_category_display }} | {{ product.price }} сом</p>
-                        <a href="{% url "webapp:product_detail" product.pk %}"
-                           class="btn btn-primary">Посмотреть</a>
+                        <p><a href="{% url "webapp:product_detail" product.pk %}"
+                           class="btn btn-primary">Посмотреть</a></p>
+                        <a href="{% url 'webapp:basket_change' %}?pk={{ product.pk }}&action=add" class="btn btn-primary">В корзину</a>
                     </div>
                 </div>
             </div>
